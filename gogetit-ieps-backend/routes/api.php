@@ -6,6 +6,7 @@ use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\IncomeCategoryController;
 // use App\Providers\Passport
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,11 @@ Route::get('income/{id}', [IncomeController::class,'getOneIncome']);
 Route::get('expense_category', [ExpenseCategoryController::class,'getAllExpenseCategories']);
 Route::post('expense_category', [ExpenseCategoryController::class,'createExpenseCategory']);
 Route::get('expense_category/{id}', [ExpenseCategoryController::class,'getOneExpenseCategory']);
+
+Route::get('income_category', [IncomeCategoryController::class,'getAllIncomeCategories']);
+Route::post('income_category', [IncomeCategoryController::class,'createIncomeCategory']);
+Route::get('income_category/{id}', [IncomeCategoryController::class,'getOneIncomeCategory']);
+
 
 
 //Auth routes

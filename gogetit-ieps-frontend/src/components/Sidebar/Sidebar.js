@@ -11,6 +11,8 @@ import {
   // HelpOutline as FAQIcon,
   ArrowBack as ArrowBackIcon,
   Money as MoneyIcon,
+  Add as AddIcon,
+  
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
@@ -33,13 +35,11 @@ import {
 const structure = [
   { id: 0, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
 
-  { id: 2, label: "Expenses", link: "/app/tables/Expenses", icon: <TableIcon /> },
+  { id: 21, label: "Create Expense", link: "/app/tables/createExpense", icon: <AddIcon /> },
+  { id: 2, label: "All Expenses", link: "/app/tables/Expenses", icon: <TableIcon /> },
+  { id: 22, label: "Register New Income", link: "/app/tables/createIncome", icon: <AddIcon /> },
   { id: 20, label: "All Income", link: "/app/tables/Income", icon: <MoneyIcon /> },
-  { id: 21, label: "Create Expense", link: "/app/tables/createExpense", icon: <MoneyIcon /> },
-
-
-];
-
+]
 function Sidebar({ location }) {
   var classes = useStyles();
   var theme = useTheme();
