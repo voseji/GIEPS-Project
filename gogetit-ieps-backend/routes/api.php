@@ -40,6 +40,7 @@ Route::get('income_category/{id}', [IncomeCategoryController::class,'getOneIncom
 
 
 
+
 //Auth routes
 Route::post('login', [AuthController::class,'login']);
 Route::post('register', [AuthController::class,'register']);

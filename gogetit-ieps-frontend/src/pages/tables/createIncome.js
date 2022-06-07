@@ -46,7 +46,7 @@ export default function CreateIncome() {
 
 
     const res1 = await API.post(`/income`, formData)
-
+    console.log(res1)
   }
 
   const fetchIncome = useCallback(async () => {

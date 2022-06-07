@@ -39,6 +39,7 @@ import Incomes from "../../pages/tables/Income";
 import CreateExpense from "../../pages/tables/createExpense";
 import CreateIncome from "../../pages/tables/createIncome";
 import CreateIncomeCategory from "../../pages/tables/createIncomeCategory";
+import CreateExpenseCategory from "../../pages/tables/createExpenseCategory";
 
 function Layout(props) {
   var classes = useStyles();
@@ -65,6 +66,7 @@ function Layout(props) {
               <Route path="/app/tables/createExpense" component={CreateExpense} />
               <Route path="/app/tables/createIncome" component={CreateIncome} />
               <Route path="/app/tables/createIncomeCategory" component={CreateIncomeCategory} />
+              <Route path="/app/tables/createExpenseCategory" component={CreateExpenseCategory} />
               <Route path="/app/notifications" component={Notifications} />
               <Route
                 exact

@@ -5,13 +5,17 @@ import {
   // NotificationsNone as NotificationsIcon,
   // FormatSize as TypographyIcon,
   // FilterNone as UIElementsIcon,
-  BorderAll as TableIcon,
+  // BorderAll as TableIcon,
   // QuestionAnswer as SupportIcon,
   // LibraryBooks as LibraryIcon,
   // HelpOutline as FAQIcon,
   ArrowBack as ArrowBackIcon,
-  Money as MoneyIcon,
+  // Money as MoneyIcon,
   Add as AddIcon,
+  Settings as AddSettings,
+  PictureAsPdf as PDF,
+  Input as IncomeIcon,
+  DataUsage as ExpenseIcon,
   
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
@@ -35,20 +39,47 @@ import {
 const structure = [
   { id: 0, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
 
-  { id: 21, label: "Create Expense", link: "/app/tables/createExpense", icon: <AddIcon /> },
-  { id: 22, label: "Register New Income", link: "/app/tables/createIncome", icon: <AddIcon /> },
-  { id: 23, label: "Create New Income Cat.", link: "/app/tables/createIncomeCategory", icon: <AddIcon /> },
-  { id: 2, label: "All Expenses", link: "/app/tables/Expenses", icon: <TableIcon /> },
-  { id: 20, label: "All Income", link: "/app/tables/Income", icon: <MoneyIcon /> },
+ {
+    id: 3,
+    label: "Income ",
+    link: "/app/ui",
+    icon: <IncomeIcon />,
+    children: [
+      { label: "Add Income", link: "/app/tables/createIncome", icon: <AddIcon /> },
+      { label: "View Incomes", link: "/app/tables/Income", icon: <AddIcon /> },
+    
+    ],
+  },
   {
     id: 4,
+    label: "Expenses ",
+    link: "/app/ui",
+    icon: <ExpenseIcon />,
+    children: [
+      { label: "Add Expense", link: "/app/tables/createExpense", icon: <AddIcon /> },
+      { label: "View Expenses", link: "/app/tables/Expenses", icon: <AddIcon /> },
+    
+    ],
+  },
+  {
+    id: 5,
+    label: "Reports ",
+    link: "/app/ui",
+    icon: <PDF />,
+    children: [
+      { label: "PDF", link: "#", icon: <AddIcon /> },
+      { label: "Excel", link: "#", icon: <AddIcon /> },
+    
+    ],
+  },
+  {
+    id: 6,
     label: "Settings ",
     link: "/app/ui",
-    icon: <MoneyIcon />,
+    icon: <AddSettings />,
     children: [
-      { label: "Icons", link: "/app/ui/icons" },
-      { label: "Charts", link: "/app/ui/charts" },
-      { label: "Maps", link: "/app/ui/maps" },
+      { label: "Add Inc. Cat.", link: "/app/tables/createIncomeCategory", icon: <AddIcon /> },
+    
     ],
   },
 ]

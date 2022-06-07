@@ -33,7 +33,7 @@ function Login(props) {
   var [error, setError] = useState(null);
   var [activeTabId, setActiveTabId] = useState(0);
   var [nameValue, setNameValue] = useState("");
-  var [loginValue, setLoginValue] = useState("admin@flatlogic.com");
+  var [loginValue, setLoginValue] = useState("comrade.paul@gmail.com");
   var [passwordValue, setPasswordValue] = useState("password");
 
   return (

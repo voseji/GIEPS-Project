@@ -1,6 +1,6 @@
-import { useCallback } from "react";
+// import { useCallback } from "react";
 // import React, { useEffect } from 'react'
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // import MUIDataTable from "mui-datatables";
 import API from '../../api';
@@ -15,8 +15,7 @@ import {
   // Tabs,
   // Tab,
   TextField,
-  MenuItem,
-  Select
+
   // Fade,
 } from "@material-ui/core";
 
@@ -46,7 +45,7 @@ export default function CreateIncomeCategory() {
 
 
     const res1 = await API.post(`/income_category`, formData)
-
+    console.log(res1)
   }
 
   // const fetchIncome = useCallback(async () => {
