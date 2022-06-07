@@ -36,9 +36,21 @@ const structure = [
   { id: 0, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
 
   { id: 21, label: "Create Expense", link: "/app/tables/createExpense", icon: <AddIcon /> },
-  { id: 2, label: "All Expenses", link: "/app/tables/Expenses", icon: <TableIcon /> },
   { id: 22, label: "Register New Income", link: "/app/tables/createIncome", icon: <AddIcon /> },
+  { id: 23, label: "Create New Income Cat.", link: "/app/tables/createIncomeCategory", icon: <AddIcon /> },
+  { id: 2, label: "All Expenses", link: "/app/tables/Expenses", icon: <TableIcon /> },
   { id: 20, label: "All Income", link: "/app/tables/Income", icon: <MoneyIcon /> },
+  {
+    id: 4,
+    label: "Settings ",
+    link: "/app/ui",
+    icon: <MoneyIcon />,
+    children: [
+      { label: "Icons", link: "/app/ui/icons" },
+      { label: "Charts", link: "/app/ui/charts" },
+      { label: "Maps", link: "/app/ui/maps" },
+    ],
+  },
 ]
 function Sidebar({ location }) {
   var classes = useStyles();
