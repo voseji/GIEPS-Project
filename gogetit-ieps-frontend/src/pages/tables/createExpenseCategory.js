@@ -48,15 +48,6 @@ export default function CreateExpenseCategory() {
     console.log(res1)
   }
 
-  // const fetchIncome = useCallback(async () => {
-  //   await API.get(`/income_category`).then(({ data }) => {
-  //     setIncomeCategories(data)
-  //   })
-  // }, []);
-  // useEffect(() => {
-  //   fetchIncome()
-  // }, [fetchIncome])
-
   return (
     <>
       <PageTitle title="Create New Expense Category" />

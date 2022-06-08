@@ -42,7 +42,7 @@ const structure = [
  {
     id: 3,
     label: "Income ",
-    link: "/app/ui",
+    
     icon: <IncomeIcon />,
     children: [
       { label: "Add Income", link: "/app/tables/createIncome", icon: <AddIcon /> },
@@ -53,7 +53,7 @@ const structure = [
   {
     id: 4,
     label: "Expenses ",
-    link: "/app/ui",
+    
     icon: <ExpenseIcon />,
     children: [
       { label: "Add Expense", link: "/app/tables/createExpense", icon: <AddIcon /> },
@@ -64,7 +64,7 @@ const structure = [
   {
     id: 5,
     label: "Reports ",
-    link: "/app/ui",
+    
     icon: <PDF />,
     children: [
       { label: "PDF", link: "#", icon: <AddIcon /> },
@@ -75,10 +75,11 @@ const structure = [
   {
     id: 6,
     label: "Settings ",
-    link: "/app/ui",
+    
     icon: <AddSettings />,
     children: [
       { label: "Add Inc. Cat.", link: "/app/tables/createIncomeCategory", icon: <AddIcon /> },
+      { label: "Add Exp. Cat.", link: "/app/tables/createExpenseCategory", icon: <AddIcon /> },
     
     ],
   },

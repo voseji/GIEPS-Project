@@ -1,6 +1,6 @@
-// import React from "react";
-// import React, { useState, useEffect } from 'react'
-import React, { useState } from "react";
+import { useCallback } from "react";
+// import React, { useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 // import MUIDataTable from "mui-datatables";
 import API from '../../api';
@@ -15,20 +15,23 @@ import {
   // Tabs,
   // Tab,
   TextField,
+  MenuItem,
+  Select
   // Fade,
 } from "@material-ui/core";
 
 // import { useNavigate } from "react-router-dom";
-
+// import Select from 'react-select';
+// import { SelectFetch } from 'react-select-fetch';
 
 
 export default function CreateExpense() {
-  
-  const [transactionId, setTransactionId] = useState(null)
-  const [expenseCategory, setExpenseCategory] = useState(null)
-  const [description, setDescription] = useState(null)
-  const [amount, setAmount] = useState(null)
-  // const navigate = useNavigate();
+
+  const [transactionId, setExpenseId] = useState("")
+  const [description, setDescription] = useState("")
+  const [amount, setAmount] = useState("")
+  const [expenseCategories, setExpenseCategories] = useState([])
+  const [expenseCategory, setExpenseCategory] = useState("");
 
   const createOneExpense = async (e) => {
     e.preventDefault();
@@ -42,76 +45,96 @@ export default function CreateExpense() {
 
 
 
-  const res1 = await API.post(`/expenses`, formData)
-console.log(res1)
-  // navigate("/")
+    const res1 = await API.post(`/expenses`, formData)
+    console.log(res1)
+  }
 
-
-}
+  const fetchExpense = useCallback(async () => {
+    await API.get(`/expense_category`).then(({ data }) => {
+      setExpenseCategories(data)
+    })
+  }, []);
+  useEffect(() => {
+    fetchExpense()
+  }, [fetchExpense])
 
   return (
     <>
-      <PageTitle title="Create New Expense" />
+      <PageTitle title="Register New Expense" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
-        <TextField
-                id="transactionId"
-                margin="normal"
-                placeholder="Transaction ID"
-                type="text"
-                fullWidth
-                value={transactionId} 
-                onChange={(event)=>{
-                  setTransactionId(event.target.value)
-                }}/>
+          <TextField
+            id="expenseId"
+            placeholder="Expense ID"
+            type="text"
+            variant="outlined"
+            style={{margin: "10px 0"}}
+            fullWidth
+            value={transactionId}
+            onChange={(event) => {
+              setExpenseId(event.target.value)
+            }} />
 
-        <TextField
-                id="expenseCategory"
-                margin="normal"
-                placeholder="Expense Category"
-                type="text"
-                fullWidth
-                value={expenseCategory} 
-                onChange={(event)=>{
-                  setExpenseCategory(event.target.value)
-                }}/>
 
-              
-        <TextField
-                id="description"
-                margin="normal"
-                placeholder="Description"
-                type="text"
-                fullWidth
-                value={description} 
-                onChange={(event)=>{
-                  setDescription(event.target.value)
-                }}/>
 
-        <TextField
-                id="amount"
-                margin="normal"
-                placeholder="Amount"
-                type="text"
-                fullWidth
-                value={amount} 
-                onChange={(event)=>{
-                  setAmount(event.target.value)
-                }}/> 
 
-           
+          <TextField
+            id="description"
+            placeholder="Description"
+            type="text"
+            variant="outlined"
+            style={{margin: "10px 0"}}
+            fullWidth
+            value={description}
+            onChange={(event) => {
+              setDescription(event.target.value)
+            }} />
 
-                  <Button
-                   variant="contained"
-                    color="primary"
-                    size="large"
-                    onClick={createOneExpense}
-                  >
-                    Submit
-                  </Button>
+          <TextField
+            id="amount"
+            placeholder="Amount"
+            type="text"
+            variant="outlined"
+            style={{margin: "10px 0"}}
+            fullWidth
+            value={amount}
+            onChange={(event) => {
+              setAmount(event.target.value)
+            }} />
+
+          <Select
+            id="expenseCategory"
+            variant="outlined"
+            style={{margin: "10px 0"}}
+            fullWidth
+            value={expenseCategory}
+            onChange={({target: {value: category}}) => {
+              setExpenseCategory(category);
+              console.log(category)
+            }}
+
+          >
+            <MenuItem value={""}><em>Select Category</em></MenuItem>
+            {expenseCategories.map(category => {
+              return (<MenuItem value={category.expenseCategoryType} key={category.id}>
+                {category.expenseCategoryType}
+              </MenuItem>)
+            })}
+          </Select>
+
+          <br />
+
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={createOneExpense}
+          >
+            Submit
+          </Button>
 
         </Grid>
-       
+
       </Grid>
     </>
   );
