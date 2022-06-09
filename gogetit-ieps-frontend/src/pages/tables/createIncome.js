@@ -27,7 +27,7 @@ import {
 
 export default function CreateIncome() {
 
-  const [incomeId, setIncomeId] = useState("")
+  // const [incomeId, setIncomeId] = useState("")
   const [description, setDescription] = useState("")
   const [amount, setAmount] = useState("")
   const [incomeCategories, setIncomeCategories] = useState([])
@@ -37,8 +37,9 @@ export default function CreateIncome() {
     e.preventDefault();
 
     const formData = new FormData()
+    const generatedNumber= Math.ceil(10 + Math.random() * 9999999999)
 
-    formData.append('incomeId', incomeId)
+    formData.append('incomeId', generatedNumber)
     formData.append('incomeCategory', incomeCategory)
     formData.append('description', description)
     formData.append('amount', amount)
@@ -63,20 +64,7 @@ export default function CreateIncome() {
       <PageTitle title="Register New Income" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <TextField
-            id="incomeId"
-            placeholder="Income ID"
-            type="text"
-            variant="outlined"
-            style={{margin: "10px 0"}}
-            fullWidth
-            value={incomeId}
-            onChange={(event) => {
-              setIncomeId(event.target.value)
-            }} />
-
-
-
+  
 
           <TextField
             id="description"

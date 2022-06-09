@@ -27,7 +27,7 @@ import {
 
 export default function CreateExpense() {
 
-  const [transactionId, setExpenseId] = useState("")
+  // const [transactionId, setExpenseId] = useState("")
   const [description, setDescription] = useState("")
   const [amount, setAmount] = useState("")
   const [expenseCategories, setExpenseCategories] = useState([])
@@ -37,8 +37,9 @@ export default function CreateExpense() {
     e.preventDefault();
 
     const formData = new FormData()
+    const generatedNumber= Math.ceil(10 + Math.random() * 9999999999)
 
-    formData.append('transactionId', transactionId)
+    formData.append('transactionId', generatedNumber)
     formData.append('expenseCategory', expenseCategory)
     formData.append('description', description)
     formData.append('amount', amount)
@@ -58,26 +59,14 @@ export default function CreateExpense() {
     fetchExpense()
   }, [fetchExpense])
 
+  
+
   return (
     <>
       <PageTitle title="Register New Expense" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <TextField
-            id="expenseId"
-            placeholder="Expense ID"
-            type="text"
-            variant="outlined"
-            style={{margin: "10px 0"}}
-            fullWidth
-            value={transactionId}
-            onChange={(event) => {
-              setExpenseId(event.target.value)
-            }} />
-
-
-
-
+      
           <TextField
             id="description"
             placeholder="Description"
