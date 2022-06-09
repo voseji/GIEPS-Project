@@ -21,9 +21,9 @@ use App\Http\Controllers\IncomeCategoryController;
 
 
 
-Route::get('expenses', [ExpensesController::class,'getAllExpenses']);
-Route::post('expenses', [ExpensesController::class,'createExpense']);
-Route::get('expenses/{id}', [ExpensesController::class,'getOneExpense']);
+Route::get('/expenses', [ExpensesController::class,'getAllExpenses']);
+Route::post('/expenses', [ExpensesController::class,'createExpense']);
+Route::get('/expenses/{id}', [ExpensesController::class,'getOneExpense']);
 
 
 Route::get('income', [IncomeController::class,'getAllIncomes']);
