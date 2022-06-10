@@ -23,7 +23,7 @@ import {
 // import { useNavigate } from "react-router-dom";
 // import Select from 'react-select';
 // import { SelectFetch } from 'react-select-fetch';
-
+import Swal from 'sweetalert2';
 
 export default function CreateExpense() {
 
@@ -33,7 +33,7 @@ export default function CreateExpense() {
   const [expenseCategories, setExpenseCategories] = useState([])
   const [expenseCategory, setExpenseCategory] = useState("");
 
-  const createOneExpense = async (e) => {
+  const CreateOneExpense = async (e) => {
     e.preventDefault();
 
     const formData = new FormData()
@@ -48,6 +48,15 @@ export default function CreateExpense() {
 
     const res1 = await API.post(`/expenses`, formData)
     console.log(res1)
+    Swal.fire({
+      title: 'Success',
+      text: 'Thank you. This expense has been successfully captured',
+      icon: 'success',
+      confirmButtonText: 'Ok',
+      showCancelButton: true,
+      
+    })
+    
   }
 
   const fetchExpense = useCallback(async () => {
@@ -59,7 +68,11 @@ export default function CreateExpense() {
     fetchExpense()
   }, [fetchExpense])
 
-  
+
+
+
+
+
 
   return (
     <>
@@ -117,7 +130,7 @@ export default function CreateExpense() {
             variant="contained"
             color="primary"
             size="large"
-            onClick={createOneExpense}
+            onClick={CreateOneExpense}
           >
             Submit
           </Button>
