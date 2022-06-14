@@ -52,10 +52,8 @@ export default function CreateExpense() {
       title: 'Success',
       text: 'Thank you. This expense has been successfully captured',
       icon: 'success',
-      confirmButtonText: 'Ok',
-      showCancelButton: true,
-      
-    })
+      confirmButtonText: '<a  href="/#/app/tables/Expenses">Ok</a>',
+     })
     
   }
 

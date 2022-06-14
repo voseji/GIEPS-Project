@@ -20,10 +20,7 @@ import {
   // Fade,
 } from "@material-ui/core";
 
-// import { useNavigate } from "react-router-dom";
-// import Select from 'react-select';
-// import { SelectFetch } from 'react-select-fetch';
-
+import Swal from 'sweetalert2';
 
 export default function CreateIncome() {
 
@@ -48,7 +45,13 @@ export default function CreateIncome() {
 
     const res1 = await API.post(`/income`, formData)
     console.log(res1)
-  }
+    Swal.fire({
+      title: 'Success',
+      text: 'Thank you. This income has been successfully captured',
+      icon: 'success',
+      confirmButtonText: '<a  href="/#/app/tables/Income">Ok</a>',
+    })
+    }
 
   const fetchIncome = useCallback(async () => {
     await API.get(`/income_category`).then(({ data }) => {

@@ -1,6 +1,6 @@
 // import React from "react";
 import React, { useState, useEffect } from 'react'
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 // import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
 import API from '../../api';
@@ -8,7 +8,7 @@ import API from '../../api';
 import PageTitle from "../../components/PageTitle/PageTitle";
 // import Naira from 'react-naira';
 import moment from 'moment'
-
+import { Link } from 'react-router-dom';
 
 
 const columns = [
@@ -22,19 +22,15 @@ const columns = [
   { label: "Transaction ID", name: "transactionId" },
   { label: "Expense Category", name: "expenseCategory" },
   { label: "Description", name: "description" },
-  { label: "Amount", name: "amount" },
+  { label: "Amount", name: "amount", },
   { label: "Action", name:'action', options: {
     customBodyRender: () => {
-      return <>View</>
+      return <><Link to={`/students/print/`}>Print</Link></>
     }
   } },
 ];
 
 export default function Tables() {
-
-
-
-
   const [expenses, setExpenses] = useState([])
 
   useEffect(() => {
@@ -47,15 +43,19 @@ export default function Tables() {
     })
   }
 
-
-
-
-
-
   return (
     <>
       <PageTitle title="All Expenses" />
       <Grid container spacing={4}>
+      <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            href="/#/app/tables/createExpense"
+          >
+            Add New Expense
+          </Button>
+       <br/>
         <Grid item xs={12}>
           <MUIDataTable
             title="Expenses List"
